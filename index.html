@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElectroFleet MLM | Invest & Earn</title>
+    <!-- Tailwind CSS for modern responsive styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #111827 0%, #065f46 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans flex flex-col min-screen justify-between min-h-screen">
+
+    <!-- 1. HEADER SECTION -->
+    <header class="bg-gray-950 border-b border-emerald-800 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2 cursor-pointer" onclick="switchTab('home')">
+                <i class="fa-solid fa-charging-station text-emerald-400 text-2xl animate-pulse"></i>
+                <span class="text-xl font-bold tracking-wider text-emerald-400">ELECTRO<span class="text-white">FLEET</span></span>
+            </div>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <button onclick="switchTab('home')" class="hover:text-emerald-400 transition-colors">Home</button>
+                <button onclick="switchTab('packages')" class="hover:text-emerald-400 transition-colors">Packages</button>
+                <button onclick="switchTab('dashboard')" id="nav-dash" class="hidden hover:text-emerald-400 transition-colors">Dashboard</button>
+            </nav>
+            <div class="flex items-center gap-4">
+                <button id="auth-btn" onclick="openLogin()" class="bg-emerald-500 hover:bg-emerald-600 text-gray-950 font-bold px-5 py-2 rounded-full text-sm shadow-lg shadow-emerald-900/30 transition-all">
+                    <i class="fa-solid fa-right-to-bracket mr-2"></i>Login / Sign Up
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN APP WRAPPER -->
+    <main class="flex-grow">
+
+        <!-- 2. HOME / HERO SECTION -->
+        <section id="tab-home" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
+            <div class="gradient-bg rounded-3xl p-8 md:p-16 border border-emerald-700/30 shadow-2xl relative overflow-hidden">
+                <div class="absolute -top-24 -right-24 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl"></div>
+                <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-6">
+                    Invest in <span class="text-emerald-400">EV Bikes</span>,<br>Build Your Delivery Empire
+                </h1>
+                <p class="text-gray-300 max-w-2xl mx-auto text-base md:text-lg mb-8">
+                    Hum Zomato aur Swiggy ke riders ko eco-friendly electric bikes rent par dete hain. Aap hamare assets ke co-owner baniye aur har hafte guaranteed passive rent income aur network referral bonuses kamayein!
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <button onclick="switchTab('packages')" class="bg-emerald-500 hover:bg-emerald-600 text-gray-950 font-bold px-8 py-3 rounded-xl shadow-lg transition-all">
+                        View Packages
+                    </button>
+                    <button onclick="openLogin()" class="bg-gray-800 hover:bg-gray-700 text-white font-bold px-8 py-3 rounded-xl border border-gray-700 transition-all">
+                        Join Network
+                    </button>
+                </div>
+            </div>
+
+            <!-- Business Highlights -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+                <div class="bg-gray-950 p-6 rounded-2xl border border-gray-800">
+                    <i class="fa-solid fa-motorcycle text-emerald-400 text-3xl mb-4"></i>
+                    <h3 class="text-lg font-bold mb-2">Real Tangible Asset</h3>
+                    <p class="text-gray-400 text-sm">Aapka paisa seedha commercial low-speed electric bikes mein transform hota hai jiska real chassis number aap track kar sakte hain.</p>
+                </div>
+                <div class="bg-gray-950 p-6 rounded-2xl border border-gray-800">
+                    <i class="fa-solid fa-money-bill-trend-up text-emerald-400 text-3xl mb-4"></i>
+                    <h3 class="text-lg font-bold mb-2">83.3% Weekly Rent Share</h3>
+                    <p class="text-gray-400 text-sm">Riders se aane wale ₹1,200/week rent ka ek bada hissa seedha aapke wallet mein har somwar (Monday) credit hota hai.</p>
+                </div>
+                <div class="bg-gray-950 p-6 rounded-2xl border border-gray-800">
+                    <i class="fa-solid fa-users-rectangle text-emerald-400 text-3xl mb-4"></i>
+                    <h3 class="text-lg font-bold mb-2">Binary MLM Booster</h3>
+                    <p class="text-gray-400 text-sm">Apni dual-leg team banayein aur downline packages par 5% direct aur 8% matching binary team passive bonus haasil karein.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. PACKAGES SECTION -->
+        <section id="tab-packages" class="hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <h2 class="text-3xl font-bold text-center mb-2">Crowdfund Fleet Packages</h2>
+            <p class="text-gray-400 text-center mb-12">Apne budget ke mutabik package select karein aur earning shuru karein</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Pack 1 -->
+                <div class="bg-gray-950 border border-gray-800 rounded-2xl p-6 relative flex flex-col justify-between">
+                    <div>
+                        <span class="bg-emerald-950 text-emerald-400 border border-emerald-800 text-xs font-semibold px-3 py-1 rounded-full">Level 01</span>
+                        <h3 class="text-xl font-bold mt-4 mb-1">Micro Owner</h3>
+                        <p class="text-gray-400 text-xs mb-6">1/4th Co-ownership of 1 EV Bike</p>
+                        <div class="text-3xl font-black mb-6">₹15,000</div>
+                        <ul class="space-y-3 text-sm text-gray-300 border-t border-gray-800 pt-6">
+                            <li><i class="fa-solid fa-circle-check text-emerald-400 mr-2"></i> Weekly Yield: <b>₹250</b></li>
+                            <li><i class="fa-solid fa-circle-check text-emerald-400 mr-2"></i> Contract Period: 70 Weeks</li>
+                            <li><i class="fa-solid fa-circle-check text-emerald-400 mr-2"></i> Direct Referral: 5% Cash</li>
+                        </ul>
+                    </div>
+                    <button onclick="buyPackage('Micro Owner', 15000)" class="w-full mt-8 bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-bold py-3 rounded-xl transition-all">Buy & Lease Now</button>
+                </div>
+                <!-- Pack 2 -->
+                <div class="bg-gray-950 border-2 border-emerald-500 rounded-2xl p-6 relative flex flex-col justify-between shadow-xl shadow-emerald-950/20">
+                    <div class="absolute -top-3 right-6 bg-emerald-500 text-gray-950 font-bold text-xs uppercase px-3 py-1 rounded-full">Most Popular</div>
+                    <div>
+                        <span class="bg-emerald-400 text-gray-950 text-xs font-semibold px-3 py-1 rounded-full">Level 02</span>
+                        <h3 class="text-xl font-bold mt-4 mb-1">Fleet Partner</h3>
+                        <p class="text-gray-400 text-xs mb-6">1 Full Dedicated Electric Bike</p>
+                        <div class="text-3xl font-black mb-6">₹60,000</div>
+                        <ul class="space-y-3 text-sm text-gray-300 border-t border-gray-800 pt-6">
+                            <li><i class="fa-solid fa-circle-check text-emerald-400 mr-2"></i> Weekly Yield: <b>₹1,000</b></li>
+                            <li><i class="fa-solid fa-circle-check text-emerald-400 mr-2"></i> Contract Period: 70 Weeks</li>
+                            <li><i class="fa-solid fa-circle-check text-emerald-400 mr-2"></i> Direct Referral: 5% Cash</li>
+                            <li><i class="fa-solid fa-circle-check text-emerald-400 mr-2"></i> Live Fleet GPS Access</li>
+                        </ul>
+                    </div>
+                    <button onclick="buyPackage('Fleet Partner', 60000)" class="w-full mt-8 bg-emerald-500 hover:bg-emerald-600 text-gray-950 font-bold py-3 rounded-xl transition-all">Buy & Lease Now</button>
+                </div>
+                <!-- Pack 3 -->
+                <div class="bg-gray-950 border border-gray-800 rounded-2xl p-6 relative flex flex-col justify-between">
+                    <div>
+                        <span class="bg-emerald-950 text-emerald-400 border border-emerald-800 text-xs font-semibold px-3 py-1 rounded-full">Level 03</span>
+                        <h3 class="text-xl font-bold mt-4 mb-1">Hub Master</h3>
+                        <p class="text-gray-400 text-xs mb-6">5 EV Bikes Managed Portfolio</p>
+                        <div class="text-3xl font-black mb-6">₹3,00,000</div>
+                        <ul class="space-y-3 text-sm text-gray-300 border-t border-gray-800 pt-6">
+                            <li><i class="fa-solid fa-circle-check text-emerald-400 mr-2"></i> Weekly Yield: <b>₹5,500</b></li>
+                            <li><i class="fa-solid fa-circle-check text-emerald-400 mr-2"></i> Contract Period: 70 Weeks</li>
+                            <li><i class="fa-solid fa-circle-check text-emerald-400 mr-2"></i> Direct Referral: 5% Cash</li>
+                            <li><i class="fa-solid fa-circle-check text-emerald-400 mr-2"></i> Binary Overrides: Active</li>
+                        </ul>
+                    </div>
+                    <button onclick="buyPackage('Hub Master', 300000)" class="w-full mt-8 bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-bold py-3 rounded-xl transition-all">Buy & Lease Now</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="tab-dashboard" class="hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="flex flex-wrap items-center justify-between gap-4 mb-8">
+                <div>
+                    <h2 class="text-2xl font-bold">Welcome Back, <span id="dash-username" class="text-emerald-400">Partner</span>!</h2>
+                    <p class="text-gray-400 text-sm">ID: EF-948201 (Active Status)</p>
+                </div>
+                <div class="bg-gray-950 px-4 py-2 rounded-xl border border-gray-800 flex items-center gap-2">
+                    <span class="w-3 h-3 bg-emerald-500 rounded-full animate-ping"></span>
+                    <span class="text-xs text-gray-300 font-semibold uppercase">Realtime Node Secured</span>
+                </div>
+            </div>
+
+            <!-- Stats Overview -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div class="bg-gray-950 p-5 rounded-xl border border-gray-800">
+                    <span class="text-xs text-gray-400 uppercase tracking-wider block mb-1">Wallet Balance</span>
+                    <div class="text-2xl font-bold text-white">₹4,250.00</div>
+                    <button class="text-xs text-emerald-400 font-bold hover:underline mt-2 block"><i class="fa-solid fa-wallet mr-1"></i> Instant Payout</button>
+                </div>
+                <div class="bg-gray-950 p-5 rounded-xl border border-gray-800">
+                    <span class="text-xs text-gray-400 uppercase tracking-wider block mb-1">Active Fleet Assets</span>
+                    <div class="text-2xl font-bold text-white" id="dash-assets-count">1 EV Bike</div>
+                    <span class="text-xs text-gray-400 block mt-2"><i class="fa-solid fa-receipt mr-1"></i> Lease Contract Active</span>
+                </div>
+                <div class="bg-gray-950 p-5 rounded-xl border border-gray-800">
+                    <span class="text-xs text-gray-400 uppercase tracking-wider block mb-1">Left Leg Sales</span>
+                    <div class="text-2xl font-bold text-emerald-500">₹1,20,000</div>
+                    <span class="text-xs text-gray-400 block mt-2">Active Nodes: 4</span>
+                </div>
+                <div class="bg-gray-950 p-5 rounded-xl border border-gray-800">
+                    <span class="text-xs text-gray-400 uppercase tracking-wider block mb-1">Right Leg Sales</span>
+                    <div class="text-2xl font-bold text-emerald-500">₹90,000</div>
+                    <span class="text-xs text-gray-400 block mt-2 text-amber-400"><i class="fa-solid fa-triangle-exclamation mr-1"></i> Matching Pending: ₹30k</span>
+                </div>
+            </div>
+
+            <!-- Interactive Live Tracking Simulation -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 bg-gray-950 border border-gray-800 rounded-2xl p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-bold"><i class="fa-solid fa-map-location-dot mr-2 text-emerald-400"></i>Live Asset Mapping Tracker</h3>
+                        <span class="text-xs bg-emerald-950 text-emerald-400 border border-emerald-800 px-3 py-1 rounded-full font-mono">Bike Engine: RUNNING</span>
+                    </div>
+                    <!-- Mock Map Screen -->
+                    <div class="bg-gray-900 rounded-xl h-64 border border-gray-800 relative overflow-hidden flex items-center justify-between p-6">
+                        <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#10b981_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                        <div class="z-10">
+                            <div class="text-xs font-mono uppercase text-gray-400">Current Geofence Zone</div>
+                            <div class="text-lg font-bold text-white mb-2">New Delhi Hub - Sector 62</div>
+                            <div class="space-y-1 text-xs text-gray-400">
+                                <div><b class="text-gray-300">Rider ID:</b> Zomato_Rider_#4412</div>
+                                <div><b class="text-gray-300">GPS Signal:</b> 98% Strong</div>
+                                <div><b class="text-gray-300">Speedometer:</b> 22 KM/H (Eco-Safe)</div>
+                            </div>
+                        </div>
+                        <div class="w-24 h-24 rounded-full border-4 border-emerald-500/20 flex items-center justify-center relative animate-pulse">
+                            <i class="fa-solid fa-motorcycle text-3xl text-emerald-400"></i>
+                            <div class="absolute -top-1 left-8 w-3 h-3 bg-emerald-400 rounded-full"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Network Tree Summary -->
+                <div class="bg-gray-950 border border-gray-800 rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-lg font-bold mb-4"><i class="fa-solid fa-sitemap mr-2 text-emerald-400"></i>MLM Compensation Summary</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between border-b border-gray-800 pb-2">
+                                <span class="text-sm text-gray-400">Direct Referral Bonus (5%)</span>
+                                <span class="text-sm font-bold text-white">₹6,000.00</span>
+                            </div>
+                            <div class="flex justify-between border-b border-gray-800 pb-2">
+                                <span class="text-sm text-gray-400">Binary Matching Yield (8%)</span>
+                                <span class="text-sm font-bold text-white">₹7,200.00</span>
+                            </div>
+                            <div class="flex justify-between border-b border-gray-800 pb-2">
+                                <span class="text-sm text-gray-400">Generation Royalty Override</span>
+                                <span class="text-sm font-bold text-white">₹1,450.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-emerald-950/30 border border-emerald-800/40 p-3 rounded-xl text-xs text-emerald-400 mt-4">
+                        <i class="fa-solid fa-shield-halved mr-1"></i> Anti-Ponzi Compliance: All yields are verified directly against matching physical asset rental invoices.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <div id="auth-modal" class="hidden fixed inset-0 bg-gray-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-gray-900 border border-gray-800 w-full max-w-md rounded-2xl p-6 relative shadow-2xl">
+            <button onclick="closeLogin()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-lg"><i class="fa-solid fa-xmark"></i></button>
+            
+            <div class="flex border-b border-gray-800 mb-6 text-center">
+                <button id="btn-login-tab" onclick="toggleAuthMode('login')" class="w-1/2 pb-3 font-bold border-b-2 border-emerald-500 text-emerald-400">Sign In</button>
+                <button id="btn-signup-tab" onclick="toggleAuthMode('signup')" class="w-1/2 pb-3 font-bold text-gray-400 border-b-2 border-transparent">Create Account</button>
+            </div>
+
+            <form id="form-auth" onsubmit="handleAuthSubmit(event)" class="space-y-4">
+                <div id="field-name" class="hidden">
+                    <label class="text-xs text-gray-400 block mb-1 uppercase font-semibold">Full Name</label>
+                    <input type="text" id="input-name" placeholder="Enter full name" class="w-full bg-gray-950 border border-gray-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-emerald-500 text-white">
+                </div>
+                <div>
+                    <label class="text-xs text-gray-400 block mb-1 uppercase font-semibold">Email or Phone Number</label>
+                    <input type="text" id="input-username" required placeholder="name@domain.com / +91" class="w-full bg-gray-950 border border-gray-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-emerald-500 text-white">
+                </div>
+                <div>
+                    <label class="text-xs text-gray-400 block mb-1 uppercase font-semibold">Secure Password</label>
+                    <input type="password" id="input-password" required placeholder="••••••••" class="w-full bg-gray-950 border border-gray-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-emerald-500 text-white">
+                </div>
+                <div id="field-sponsor" class="hidden">
+                    <label class="text-xs text-gray-400 block mb-1 uppercase font-semibold">Sponsor Node Code</label>
+                    <input type="text" placeholder="Optional" class="w-full bg-gray-950 border border-gray-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-emerald-500 text-white">
+                </div>
+                <button type="submit" id="submit-auth-btn" class="w-full bg-emerald-500 hover:bg-emerald-600 text-gray-950 font-bold py-3 rounded-xl mt-4 transition-all">Authenticate Node</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="bg-gray-950 border-t border-gray-800 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-charging-station text-emerald-500"></i>
+                <span class="font-bold text-gray-400 tracking-wide">ELECTROFLEET ASSETS PVT LTD.</span>
+            </div>
+            <p>&copy; 2026 ElectroFleet Infrastructure System. Fully Asset-Backed MLM Compliance Secured.</p>
+            <div class="flex gap-4">
+                <a href="#" class="hover:text-gray-300">Privacy Architecture</a>
+                <a href="#" class="hover:text-gray-300">Smart Contract Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let currentAuthMode = 'login';
+        let isLoggedIn = false;
+
+        function switchTab(tabId) {
+            document.getElementById('tab-home').classList.add('hidden');
+            document.getElementById('tab-packages').classList.add('hidden');
+            document.getElementById('tab-dashboard').classList.add('hidden');
+            document.getElementById('tab-' + tabId).classList.remove('hidden');
+        }
+
+        function openLogin() {
+            if(isLoggedIn) {
+                isLoggedIn = false;
+                document.getElementById('auth-btn').innerHTML = '<i class="fa-solid fa-right-to-bracket mr-2"></i>Login / Sign Up';
+                document.getElementById('nav-dash').classList.add('hidden');
+                switchTab('home');
+                alert('Session closed safely.');
+            } else {
+                document.getElementById('auth-modal').classList.remove('hidden');
+            }
+        }
+
+        function closeLogin() {
+            document.getElementById('auth-modal').classList.add('hidden');
+        }
+
+        function toggleAuthMode(mode) {
+            currentAuthMode = mode;
+            const loginTab = document.getElementById('btn-login-tab');
+            const signupTab = document.getElementById('btn-signup-tab');
+            const nameField = document.getElementById('field-name');
+            const sponsorField = document.getElementById('field-sponsor');
+            const submitBtn = document.getElementById('submit-auth-btn');
+
+            if(mode === 'login') {
+                loginTab.className = "w-1/2 pb-3 font-bold border-b-2 border-emerald-500 text-emerald-400";
+                signupTab.className = "w-1/2 pb-3 font-bold text-gray-400 border-b-2 border-transparent";
+                nameField.classList.add('hidden');
+                sponsorField.classList.add('hidden');
+                submitBtn.innerText = "Authenticate Node";
+            } else {
+                signupTab.className = "w-1/2 pb-3 font-bold border-b-2 border-emerald-500 text-emerald-400";
+                loginTab.className = "w-1/2 pb-3 font-bold text-gray-400 border-b-2 border-transparent";
+                nameField.classList.remove('hidden');
+                sponsorField.classList.remove('hidden');
+                submitBtn.innerText = "Register New Node";
+            }
+        }
+
+        function handleAuthSubmit(e) {
+            e.preventDefault();
+            isLoggedIn = true;
+            const usernameInput = document.getElementById('input-username').value;
+            const displayName = currentAuthMode === 'signup' ? document.getElementById('input-name').value || 'Investor' : usernameInput.split('@')[0];
+            
+            document.getElementById('dash-username').innerText = displayName;
+            document.getElementById('auth-btn').innerHTML = '<i class="fa-solid fa-power-off mr-2"></i>Logout';
+            document.getElementById('nav-dash').classList.remove('hidden');
+            
+            closeLogin();
+            switchTab('dashboard');
+        }
+
+        function buyPackage(packageName, price) {
+            if(!isLoggedIn) {
+                alert('Please sign in or create an account to purchase packages.');
+                openLogin();
+                return;
+            }
+            alert(`Redirecting to secure gateway to invest in "${packageName}" (₹${price.toLocaleString()}). On verification, your new vehicle chassis allocation number will show in the live mapping dashboard.`);
+            document.getElementById('dash-assets-count').innerText = packageName === 'Hub Master' ? '5 EV Bikes' : '1 EV Bike';
+        }
+    </script>
+</body>
+</html>
